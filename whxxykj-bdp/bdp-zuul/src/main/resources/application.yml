@@ -1,0 +1,64 @@
+server:
+   port: 8070
+spring: 
+   application: 
+      name: bdp-zuul
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/      #服务注册中信地址，含有BASIC认证的用户名和密码
+  instance:
+    prefer-ip-address: true         #将IP注册到服务注册中心
+ribbon: 
+   ReadTimeout: 10000
+   ConnectTimeout: 10000
+zuul: 
+   host: 
+      connect-timeout-millis: 15000 #HTTP连接超时大于Hystrix的超时时间
+      socket-timeout-millis: 60000   #socket超时
+   routes: 
+      bdp-api: 
+         path: /ztwzjt/api/**
+         service-id: bdp-api
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-basic: 
+         path: /ztwzjt/basic/**
+         service-id: bdp-basic
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-cbm: 
+         path: /ztwzjt/cbm/**
+         service-id: bdp-cbm
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-crcc: 
+         path: /ztwzjt/crcc/**
+         service-id: bdp-crcc
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-crm: 
+         path: /ztwzjt/crm/**
+         service-id: bdp-crm
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-glodal: 
+         path: /ztwzjt/glodal/**
+         service-id: bdp-glodal
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-ldp: 
+         path: /ztwzjt/ldp/**
+         service-id: bdp-ldp
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-portal: 
+         path: /ztwzjt/portal/**
+         service-id: bdp-portal
+         strip-prefix: true
+         sensitiveHeaders: 
+      bdp-sdp: 
+         path: /ztwzjt/sdp/**
+         service-id: bdp-sdp
+         strip-prefix: true
+         sensitiveHeaders: 

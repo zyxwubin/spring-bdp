@@ -1,0 +1,23 @@
+server:
+   port: 8108
+spring: 
+   application: 
+      name: bdp-cbm
+   atasource:
+     url: jdbc:oracle:thin:@bjjgq.ticp.net:1521:orcl
+     username: ztwzjt
+     password: ztwzjt
+     driverClassName: oracle.jdbc.OracleDriver
+   jpa:
+     show-sql: true
+     hibernate:
+       ddl-auto: update
+   jackson:
+     serialization:
+       indent_output: true
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8100/eureka/      #服务注册中信地址，含有BASIC认证的用户名和密码
+  instance:
+    prefer-ip-address: true         #将IP注册到服务注册中心

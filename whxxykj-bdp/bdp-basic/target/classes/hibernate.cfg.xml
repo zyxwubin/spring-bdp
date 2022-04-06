@@ -1,0 +1,24 @@
+<!DOCTYPE hibernate-configuration PUBLIC
+	"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+	"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+   <session-factory>
+       <property name="hibernate.connection.username">ztwzjt</property>
+       <property name="hibernate.connection.password">ztwzjt</property>
+       <property name="hibernate.connection.url">jdbc:oracle:thin:@bjjgq.ticp.net:1521:orcl</property>
+       <property name="hibernate.connection.driver_class">oracle.jdbc.OracleDriver</property>
+       
+       <!-- 配置数据库的方言,让hibernate运行时,知道底层连接的是哪种数据库,能进行数据类型间的转化 -->
+       <property name="hibernate.dialect">org.hibernate.dialect.Oracle10gDialect</property>
+        <!-- 显示生成的sql语句 -->
+       <property name="hibernate.show_sql">true</property> 
+       
+        <!-- 利用javaBean生成表 
+          hibernate.hbm2ddl.auto:从映射(hbm)文件生成表(ddl)
+             * none:不能从映射(hbm)文件生成表(ddl),只能在表存在的时候,往表中插入数据
+             * create:如果表存在 删除表,在创建表,插入数据到表中
+             * update:如果表存在，插入数据到表中,如果表不存在,先创建表,在插入数据到表中
+        -->
+        <property name="hibernate.hbm2ddl.auto">update</property> 
+   </session-factory>
+</hibernate-configuration>
